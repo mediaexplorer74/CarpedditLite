@@ -26,15 +26,15 @@ namespace Carpeddit.App.ViewModels.Pages
 
             Items = new(source, 50, () =>
             {
-                if (loadedInitialItems)
-                    IsLoadingMore = true;
-                else
-                    IsLoading = true;
+                //if (loadedInitialItems)
+                //    IsLoadingMore = true;
+                //else
+                //    IsLoading = true;
             }, () =>
             {
                 loadedInitialItems = true;
-                IsLoading = false;
-                IsLoadingMore = false;
+                //IsLoading = false;
+                //IsLoadingMore = false;
             });
         }
 

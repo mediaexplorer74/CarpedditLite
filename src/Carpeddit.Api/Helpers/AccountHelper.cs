@@ -27,7 +27,10 @@ namespace Carpeddit.Api.Helpers
         /// <param name="userName">The user name, if not specified then it gets automatically retrieved from the API.</param>
         /// <returns>A <see cref="Task"/> which represents the operation.</returns>
         public static void SaveAccessInfo(TokenInfo info)
-            => (Ioc.Default.GetService<IRedditAuthService>() as RedditAuthService).Data = info;
+        {
+            (Ioc.Default.GetService<IRedditAuthService>() as RedditAuthService).Data = info;
+           
+        }
 
         /// <summary>
         /// Cleans up locally stored user data, then revokes the access token.

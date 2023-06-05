@@ -89,7 +89,8 @@ namespace Carpeddit.App.ViewModels
                     OnPropertyChanged(nameof(IsDownvoted));
                 }
 
-                _ = Ioc.Default.GetService<IRedditService>().VoteAsync(new(value ? 1 : 0, Post.Name));
+                _ = Ioc.Default.GetService<IRedditService>().VoteAsync(new(value ? 1 : 0, 
+                    Post.Name));
             }
         }
 
@@ -169,6 +170,8 @@ namespace Carpeddit.App.ViewModels
                 return images;
             }
         }
+
+        public object CopyPermalinkCommand { get; internal set; }
 
         public async Task SaveAsync()
         {

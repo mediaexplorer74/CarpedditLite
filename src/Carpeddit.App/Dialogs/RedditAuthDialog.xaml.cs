@@ -1,6 +1,6 @@
 ﻿using Carpeddit.Common.Constants;
 using System;
-using System.Web;
+//using System.Web;
 using Windows.UI.Xaml.Controls;
 using Carpeddit.Api.Services;
 using Carpeddit.App.ViewModels;
@@ -32,7 +32,8 @@ namespace Carpeddit.App.Dialogs
             if (!args.Uri.AbsoluteUri.StartsWith(APIConstants.RedirectUri))
                 return;
 
-            string oneTimeCode = HttpUtility.ParseQueryString(args.Uri.Query).Get("code");
+            //RnD
+            string oneTimeCode = default;//HttpUtility.ParseQueryString(args.Uri.Query).Get("code");
 
             var authInfo = await _authService.GetAccessAsync(oneTimeCode, Convert.ToBase64String(Encoding.ASCII.GetBytes(APIConstants.ClientId + ":" + APIConstants.ClientSecret)));
 

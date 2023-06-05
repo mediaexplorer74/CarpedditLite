@@ -67,7 +67,7 @@ namespace Carpeddit.App.Views
             else if (e.Parameter is string name)
             {
                 ViewModel.Subreddit = new(await service.GetSubredditInfoAsync(name));
-                ViewModel.InfoLoaded = true;
+                //ViewModel.InfoLoaded = true;
                 SubredditInfoPage_Loaded(null, null);
                 Bindings.Update();
             }
@@ -78,7 +78,7 @@ namespace Carpeddit.App.Views
             if (((FrameworkElement)e.OriginalSource).DataContext is not PostViewModel item)
                 return;
 
-            item.CopyPermalinkCommand?.Execute(null);
+            var a = item.CopyPermalinkCommand;//?.Execute(null);
         }
 
         private async void Segmented_ItemClick(object sender, ItemClickEventArgs e)
@@ -107,7 +107,7 @@ namespace Carpeddit.App.Views
             } 
             else if (element.Tag is SortMode mode && (!selectedSort?.Equals(element.Tag) ?? false))
             {
-                ViewModel.SetSortCommand?.Execute(mode);
+                var a = ViewModel.SetSortCommand;//?.Execute(mode);
             }
 
             selectedSort = element.Tag;

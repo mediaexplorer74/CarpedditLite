@@ -4,8 +4,9 @@ using Carpeddit.Common.Constants;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
+//using System.Text.Json;
 using System.Threading.Tasks;
+using Utf8Json;
 using Windows.Storage;
 
 namespace Carpeddit.Api.Services
@@ -19,14 +20,14 @@ namespace Carpeddit.Api.Services
             get
             {
                 if (ApplicationData.Current.LocalSettings.Values.TryGetValue("TokenInfo", out object value))
-                    return data ??= JsonSerializer.Deserialize((string)value, ApiJsonContext.Default.TokenInfo);
+                    return default;//data ??= JsonSerializer.Deserialize((string)value, ApiJsonContext.Default.TokenInfo);
 
                 return null;
             }
             set
             {
                 data = value;
-                ApplicationData.Current.LocalSettings.Values["TokenInfo"] = JsonSerializer.Serialize(data, ApiJsonContext.Default.TokenInfo);
+                ApplicationData.Current.LocalSettings.Values["TokenInfo"] = default;//JsonSerializer.Serialize(data, ApiJsonContext.Default.TokenInfo);
             }
         }
 
@@ -44,7 +45,8 @@ namespace Carpeddit.Api.Services
                 { "Authorization", "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes(APIConstants.ClientId + ":" + APIConstants.ClientSecret)) }
             }, dictionary);
 
-            var tokenInfo = JsonSerializer.Deserialize(await content.ReadAsStringAsync(), ApiJsonContext.Default.TokenInfo);
+            //RnD
+            TokenInfo tokenInfo = default;//JsonSerializer.Deserialize(await content.ReadAsStringAsync(), ApiJsonContext.Default.TokenInfo);
             tokenInfo.ExpirationTime = DateTimeOffset.Now.AddSeconds((double)tokenInfo.ExpiresIn);
             Data = tokenInfo;
 
@@ -67,7 +69,8 @@ namespace Carpeddit.Api.Services
                 { "Authorization", "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes(APIConstants.ClientId + ":" + APIConstants.ClientSecret)) }
             }, dictionary);
 
-            var tokenInfo = JsonSerializer.Deserialize(await content.ReadAsStringAsync(), ApiJsonContext.Default.TokenInfo);
+            //RnD
+            TokenInfo tokenInfo = default;//JsonSerializer.Deserialize(await content.ReadAsStringAsync(), ApiJsonContext.Default.TokenInfo);
 
             tokenInfo.RefreshToken = refreshToken;
             ApplicationData.Current.LocalSettings.Values["TokenInfo"] = JsonSerializer.Serialize(tokenInfo, ApiJsonContext.Default.TokenInfo);

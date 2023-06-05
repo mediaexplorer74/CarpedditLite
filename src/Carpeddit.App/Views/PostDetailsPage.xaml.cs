@@ -13,8 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Nodes;
+//using System.Text.Json;
+//using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Windows.UI.Xaml;
@@ -99,11 +99,11 @@ namespace Carpeddit.App.Views
                 return response.FirstOrDefault().Data.Children.Select<ApiObjectWithKind<object>, IPostReplyable>(obj =>
                 {
                     if (obj.Kind == "more")
-                        return JsonSerializer.Deserialize<More>(obj.Data.ToString());
+                        return default;//JsonSerializer.Deserialize<More>(obj.Data.ToString());
 
                     return new CommentViewModel()
                     {
-                        Comment = JsonSerializer.Deserialize<Comment>(obj.Data.ToString())
+                        Comment = default//JsonSerializer.Deserialize<Comment>(obj.Data.ToString())
                     };
                 });
             });

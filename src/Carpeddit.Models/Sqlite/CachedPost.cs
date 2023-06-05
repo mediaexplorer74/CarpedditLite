@@ -1,5 +1,6 @@
 ﻿using Carpeddit.Models.Sqlite;
-using SQLite;
+using System.ComponentModel.DataAnnotations.Schema;
+//using SQLite;
 
 namespace Carpeddit.Models
 {

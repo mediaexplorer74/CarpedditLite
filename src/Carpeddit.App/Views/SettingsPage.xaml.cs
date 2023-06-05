@@ -22,10 +22,14 @@ namespace Carpeddit.App.Views
         }
 
         private void OnThemeComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
-            => ViewModel.ChangeAppThemeCommand?.Execute(null);
+        {
+           var a = ViewModel.ChangeAppThemeCommand;//?.Execute(null);
+        }
 
         private void OnGridViewColorListSelectionChanged(object sender, SelectionChangedEventArgs e)
-            => ViewModel.ChangeTintColorCommand?.Execute(e.AddedItems[0]);
+        {
+            var a = ViewModel.ChangeTintColorCommand;//?.Execute(e.AddedItems[0]);
+        }
 
         private void OnTintTypeComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -1,5 +1,5 @@
 # CarpedditLite
-A lite edition (fork/replica) of client for [r]eddit. My uncomplete attempt to fix bugs in/at my [Baconit](https://github.com/mediaexplorer74/baconit) fork via RnD Carpeddit auth system...
+A lite edition (fork/replica) of client for [r]eddit. My uncomplete attempt to fix "baconit" via RnD Carpeddit auth system.
 
 ## Screenshots
 ![](/images/shot1.png)
@@ -8,12 +8,12 @@ A lite edition (fork/replica) of client for [r]eddit. My uncomplete attempt to f
 [See building instructions here](https://github.com/itsWindows11/Carpeddit/blob/main/CONTRIBUTING.md#running-the-app).
 
 ## Status
-- Min. os. win. build targeted to 16299.
-- I noticed that Carpedit's auth system is very good... but its code realization is so difficult to me :/
-- 16299-> 15063 failed (too many components are standard2.0-based, sadly!)
+- Min. os. win. build targeted to 15063.
+- All solution is damaged.. The are hard bugs after 16299-> 15063
+  (too many components are standard2.0-based, sadly!)
 
 ## TODO
-Try to do "15063 downshifting" (i.e. downgrading sdk to 15063...) 
+Try to fix my strange "w10m" code set... 
 
 ## References
 - https://github.com/itsWindows11 SimpleBear c# developer

@@ -16,7 +16,6 @@
         Background="{x:Bind Background, Mode=OneWay}"
         BorderBrush="{x:Bind BorderBrush, Mode=OneWay}"
         BorderThickness="{x:Bind BorderThickness, Mode=OneWay}"
-        ColumnSpacing="4"
         >
         
         <Grid.ColumnDefinitions>
@@ -27,7 +26,7 @@
         <StackPanel
             HorizontalAlignment="Center"
             Orientation="Vertical"
-            Spacing="5">
+            >
             <ToggleButton
                 Padding="3"
                 HorizontalAlignment="Center"
@@ -58,9 +57,12 @@
 
                 <ToggleButton.Resources>
                     <ResourceDictionary>
-                        <SolidColorBrush x:Key="ToggleButtonBackgroundChecked" Color="#7193ff" />
-                        <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPointerOver" Color="#96afff" />
-                        <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPressed" Color="#b6c7fc" />
+                        <SolidColorBrush x:Key="ToggleButtonBackgroundChecked" 
+                                         Color="#7193ff" />
+                        <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPointerOver" 
+                                         Color="#96afff" />
+                        <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPressed" 
+                                         Color="#b6c7fc" />
                     </ResourceDictionary>
                 </ToggleButton.Resources>
             </ToggleButton>
@@ -94,10 +96,6 @@
             <StackPanel Margin="0,8,0,0">
                 <controls:MarkdownTextBlock
                     d:Text="Description"
-                    CodeBackground="{ThemeResource ExpanderContentBackground}"
-                    CodeBorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                    CodeBorderThickness="1"
-                    InlineCodeBackground="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                     Text="{x:Bind Description, Mode=OneWay}"
                     Visibility="{x:Bind ShowDescription, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
 

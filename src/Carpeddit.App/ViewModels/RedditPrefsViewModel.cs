@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
+//using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Carpeddit.App.ViewModels
@@ -194,6 +194,8 @@ namespace Carpeddit.App.ViewModels
         {
             var settings = new Dictionary<string, string>();
 
+            //RnD
+            /*
             if (!string.IsNullOrEmpty(AcceptPms))
                 settings["accept_pms"] = AcceptPms;
 
@@ -229,6 +231,7 @@ namespace Carpeddit.App.ViewModels
             settings["search_include_over_18"]              = BoolToString(SearchIncludeOver18);
             settings["show_presence"]                       = BoolToString(ShowPresence);
             settings["allow_clicktracking"]                 = BoolToString(AllowClickTracking);
+            */
 
             return settings;
         }

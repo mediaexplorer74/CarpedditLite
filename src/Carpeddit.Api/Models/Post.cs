@@ -2,8 +2,9 @@
 using Carpeddit.Models.Api;
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
+using Windows.Data.Json;
+//using System.Text.Json.Nodes;
+//using System.Text.Json.Serialization;
 
 #nullable enable
 
@@ -19,13 +20,13 @@ namespace Carpeddit.Api.Models
         public DateTime ApprovedAtUtc { get; set; }
 
         [JsonPropertyName("subreddit")]
-        public string Subreddit { get; set; }
+        public string? Subreddit { get; set; }
 
         [JsonPropertyName("selftext")]
-        public string Selftext { get; set; }
+        public string? Selftext { get; set; }
 
         [JsonPropertyName("user_reports")]
-        public JsonArray UserReports { get; set; }
+        public JsonArray? UserReports { get; set; }
 
         [JsonPropertyName("user_reports_dismissed")]
         public JsonArray DismissedUserReports { get; set; }
@@ -223,10 +224,10 @@ namespace Carpeddit.Api.Models
         public bool Over18 { get; set; }
 
         [JsonPropertyName("preview")]
-        public Preview Preview { get; set; }
+        public Preview? Preview { get; set; }
 
         [JsonPropertyName("all_awardings")]
-        public JsonArray AllAwardings { get; set; }
+        public JsonArray? AllAwardings { get; set; }
 
         [JsonPropertyName("awarders")]
         public JsonArray Awarders { get; set; }
@@ -354,5 +355,9 @@ namespace Carpeddit.Api.Models
 
         [JsonPropertyName("media_metadata")]
         public Dictionary<string, ImageContainer> MediaMetadata { get; set; }
+    }
+
+    public class Preview
+    {
     }
 }

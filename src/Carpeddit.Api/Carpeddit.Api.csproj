@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -129,6 +129,9 @@
     <Compile Include="Helpers\AccountHelper.cs" />
     <Compile Include="Helpers\StringToSortTypeConverter.cs" />
     <Compile Include="Helpers\TokenHelper.cs" />
+    <Compile Include="JsonSerializableAttribute.cs" />
+    <Compile Include="JsonSerializerContext.cs" />
+    <Compile Include="JsonTypeInfo.cs" />
     <Compile Include="Models\ApiObjectWithKind.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\FlairRichText.cs" />
@@ -138,6 +141,9 @@
     <Compile Include="Models\Interfaces\IPostReplyable.cs" />
     <Compile Include="Models\Interfaces\IVotable.cs" />
     <Compile Include="Models\Interfaces\Thing{T}.cs" />
+    <Compile Include="Models\JsonConverterAttribute.cs" />
+    <Compile Include="Models\JsonNode.cs" />
+    <Compile Include="Models\JsonPropertyNameAttribute.cs" />
     <Compile Include="Models\LinkFlairRichText.cs" />
     <Compile Include="Models\ListingInput.cs" />
     <Compile Include="Models\Listing{T}.cs" />
@@ -151,6 +157,7 @@
     <Compile Include="Models\UserKarmaContainer.cs" />
     <Compile Include="Models\UserSubreddit.cs" />
     <Compile Include="Models\VotingInput.cs" />
+    <Compile Include="Services\Impl\HttpUtility.cs" />
     <Compile Include="Services\Impl\RedditAuthService.cs" />
     <Compile Include="Services\Impl\RedditService.cs" />
     <Compile Include="Services\IRedditAuthService.cs" />
@@ -161,19 +168,11 @@
     <EmbeddedResource Include="Properties\Carpeddit.Api.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm">
-      <Version>8.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="IsExternalInit">
-      <Version>1.0.3</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
+    <PackageReference Include="Caliburn.Micro.Core">
+      <Version>2.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.14</Version>
-    </PackageReference>
-    <PackageReference Include="System.Text.Json">
-      <Version>7.0.1</Version>
+      <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +183,14 @@
     <ProjectReference Include="..\Carpeddit.Models\Carpeddit.Models.csproj">
       <Project>{0b3c3582-bb42-49ed-b8c1-4dd3e2fff51b}</Project>
       <Name>Carpeddit.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.Mvvm\CommunityToolkit.Mvvm.csproj">
+      <Project>{724d9af6-3264-4b44-a4ab-ebf533664157}</Project>
+      <Name>CommunityToolkit.Mvvm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utf8Json\Utf8Json.csproj">
+      <Project>{7a507c94-cf97-414a-a7e5-e978b0213b29}</Project>
+      <Name>Utf8Json</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

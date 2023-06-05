@@ -231,8 +231,7 @@ public class BulkIncrementalLoadingCollection<TSource, IType> : BulkObservableCo
                     {
                         throw t.Exception;
                     }
-
-                    if (t.IsCompletedSuccessfully)
+                    else //if (t.IsCompletedSuccessfully)
                     {
                         CurrentPageIndex += 1;
                     }

@@ -13,31 +13,65 @@ namespace Carpeddit.App.ViewModels
         [ObservableProperty]
         private Subreddit subreddit;
 
-        public string Title => string.IsNullOrWhiteSpace(Subreddit.Title) ? Subreddit.HeaderTitle : Subreddit.Title;
+        public string Title
+        {
+            get
+            {
+                return "Title";//string.IsNullOrWhiteSpace(Subreddit.Title) ? Subreddit.HeaderTitle : Subreddit.Title;
+            }
+        }
 
-        public string FullName => Subreddit.Name;
+        public string FullName
+        {
+            get
+            {
+                return "FullName";//Subreddit.Name;
+            }
+        }
 
-        public string DisplayName => Subreddit.DisplayName;
+        public string DisplayName
+        {
+            get
+            {
+                return "DisplayName";//Subreddit.DisplayName;
+            }
+        }
 
-        public string BannerUrl => Subreddit.BannerBackgroundImage;
+        public string BannerUrl
+        {
+            get
+            {
+                return "BannerURL";//Subreddit.BannerBackgroundImage;
+            }
+        }
 
-        public bool IsTitleBlank => string.IsNullOrWhiteSpace(Subreddit.Title) || Subreddit.Title.Equals(Subreddit.DisplayNamePrefixed);
+        public bool IsTitleBlank
+        {
+            get
+            {
+                //RnD
+                return true;//string.IsNullOrWhiteSpace(Subreddit.Title) || Subreddit.Title.Equals(Subreddit.DisplayNamePrefixed);
+            }
+        }
 
         public bool IsSubscribed
         {
-            get => Subreddit.UserIsSubscriber ?? false;
+            get => false;//Subreddit.UserIsSubscriber ?? false;
             set
             {
-                Subreddit.UserIsSubscriber = value;
+                //Subreddit.UserIsSubscriber = value;
                 OnPropertyChanged();
             }
         }
+
+        public string Subreddit { get; set; }
+               
 
         private readonly IRedditService service = Ioc.Default.GetService<IRedditService>();
 
         public SubredditViewModel(Subreddit subreddit)
         {
-            Subreddit = subreddit;
+            Subreddit = "subreddit";//subreddit;
         }
 
         [RelayCommand]

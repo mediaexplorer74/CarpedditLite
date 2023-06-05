@@ -26,23 +26,28 @@ namespace Carpeddit.App.ViewModels.Pages
                 subreddit = value;
                 OnPropertyChanged();
 
-                source = new(Subreddit.Subreddit.DisplayNamePrefixed, sort: currentSort);
+                source = new(Subreddit.Subreddit/*.DisplayNamePrefixed*/, sort: currentSort);
                 Posts = new(source, 50, () =>
                 {
                     if (loadedInitialPosts)
-                        IsLoadingMore = true;
+                    {
+                        //IsLoadingMore = true;
+                    }
                     else
-                        IsLoading = true;
+                    {
+                        //IsLoading = true;
+                    }
                 }, () =>
                 {
                     loadedInitialPosts = true;
-                    IsLoading = false;
-                    IsLoadingMore = false;
+                    //IsLoading = false;
+                    //IsLoadingMore = false;
                 });
             }
         }
 
         public BulkIncrementalLoadingCollection<PostLoadingSource, PostViewModel> Posts { get; private set; }
+        public object SetSortCommand { get; internal set; }
 
         private SortMode currentSort = SortMode.Best;
         private PostLoadingSource source;

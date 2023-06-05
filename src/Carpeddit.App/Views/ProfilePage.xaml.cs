@@ -53,20 +53,20 @@ namespace Carpeddit.App.Views
             if (e.Parameter is User user)
             {
                 ViewModel.User = user;
-                ViewModel.InfoLoaded = true;
+                //ViewModel.InfoLoaded = true;
                 Loaded += Page_Loaded;
             }
             else if (e.Parameter is string userName)
             {
                 ViewModel.User = await service.GetUserAsync(userName);
-                ViewModel.InfoLoaded = true;
+                //ViewModel.InfoLoaded = true;
                 Page_Loaded(null, null);
                 Bindings.Update();
             }
             else
             {
                 ViewModel.User = await service.GetMeAsync();
-                ViewModel.InfoLoaded = true;
+                //ViewModel.InfoLoaded = true;
 
                 // Sometimes it may load too quickly so it might crash when finding a ScrollViewer
                 await Task.Delay(150);
@@ -98,7 +98,7 @@ namespace Carpeddit.App.Views
             if (((FrameworkElement)e.OriginalSource).DataContext is not PostViewModel item)
                 return;
 
-            item.CopyPermalinkCommand?.Execute(null);
+            var a = item.CopyPermalinkCommand;//?.Execute(null);
         }
 
         private void BackgroundHost_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -192,7 +192,7 @@ namespace Carpeddit.App.Views
             }
             else if (element.Tag is SortMode mode && (!selectedSort?.Equals(element.Tag) ?? false))
             {
-                ViewModel.SetSortCommand?.Execute(mode);
+                //ViewModel.SetSortCommand?.Execute(mode);
             }
 
             selectedSort = element.Tag;

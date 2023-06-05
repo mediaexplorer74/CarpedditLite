@@ -17,6 +17,7 @@ namespace Carpeddit.App.ViewModels.Pages
     public sealed partial class PopularPageViewModel : ObservableObject
     {
         public BulkIncrementalLoadingCollection<PostLoadingSource, PostViewModel> Posts { get; }
+        public object PostSelectedCommand { get; internal set; }
 
         private SortMode currentSort = SortMode.Hot;
         private readonly PostLoadingSource source;
@@ -34,14 +35,18 @@ namespace Carpeddit.App.ViewModels.Pages
             Posts = new(source, 50, () =>
             {
                 if (loadedInitialPosts)
-                    IsLoadingMore = true;
+                {
+                    //IsLoadingMore = true;
+                }
                 else
-                    IsLoading = true;
+                {
+                    //IsLoading = true;
+                }
             }, () =>
             {
                 loadedInitialPosts = true;
-                IsLoading = false;
-                IsLoadingMore = false;
+                //IsLoading = false;
+                //IsLoadingMore = false;
             });
         }
 
@@ -101,7 +106,8 @@ namespace Carpeddit.App.ViewModels.Pages
         public void SortSelectionChanged(string sort)
         {
             currentSort = StringToSortTypeConverter.ToSortMode(sort);
-            SetSortCommand?.Execute(currentSort);
+            //RnD
+            //SetSortCommand?.Execute(currentSort);
         }
     }
 }

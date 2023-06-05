@@ -19,7 +19,8 @@ namespace Carpeddit.Repository
 
             _asyncDb ??= new SQLiteAsyncConnection(file.Path);
 
-            await _asyncDb.EnableWriteAheadLoggingAsync();
+            //RnD
+            //await _asyncDb.EnableWriteAheadLoggingAsync();
 
             /*_ = await Task.WhenAll(
                     //_asyncDb.CreateTableAsync<CachedPost>(),

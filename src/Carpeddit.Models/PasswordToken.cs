@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿//using System.Text.Json.Serialization;
+
+using Carpeddit.Models.Api;
 
 namespace Carpeddit.Models
 {

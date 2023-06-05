@@ -37,13 +37,16 @@ namespace Carpeddit.App.Views
             if (((FrameworkElement)e.OriginalSource).DataContext is not PostViewModel item)
                 return;
 
-            item.CopyPermalinkCommand?.Execute(null);
+            //RnD
+            var a = item.CopyPermalinkCommand;//?.Execute(null);
         }
 
         public void Receive(PostDetailsNavigationInfo message)
             => PostDetailsFrame.Navigate(typeof(PostDetailsPage), message, new SuppressNavigationTransitionInfo());
 
         private void OnMainListSelectionChanged(object sender, SelectionChangedEventArgs e)
-            => ViewModel.PostSelectedCommand?.Execute(MainList.SelectedItem);
+        {
+            var a = ViewModel.PostSelectedCommand;//?.Execute(MainList.SelectedItem);
+        }
     }
 }

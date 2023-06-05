@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.4</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>.NET Community Toolkit - Common</Title>
+    <Description>
+      This package includes .NET helpers such as:
+      - IncrementalLoadingCollection: Simplifies the definition and usage of collections whose items can be loaded incrementally only when needed by the view.
+      - String extensions and array extensions: These extensions make working with string and arrays easier.
+    </Description>
+    <PackageTags>Incremental;Loading;Collection;IncrementalLoadingCollection;String;Array;Extensions;Helpers</PackageTags>
+  </PropertyGroup>
+
+  <!-- Necessary polyfills -->
+  <PropertyGroup>
+    <PolySharpIncludeGeneratedTypes>
+      System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute;
+      System.Diagnostics.CodeAnalysis.NotNullWhenAttribute;
+      System.Runtime.CompilerServices.SkipLocalsInitAttribute;
+    </PolySharpIncludeGeneratedTypes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>

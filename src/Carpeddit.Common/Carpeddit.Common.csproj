@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -126,8 +126,14 @@
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="Converters\EmptyStringToListConverter.cs" />
     <Compile Include="Converters\BaseTimestampConverter.cs" />
+    <Compile Include="Converters\JsonConverter.cs" />
+    <Compile Include="Converters\JsonConverterBase.cs" />
+    <Compile Include="Converters\JsonConverterBaseBase.cs" />
+    <Compile Include="Converters\JsonSerializerOptions.cs" />
     <Compile Include="Converters\LocalTimestampConverter.cs" />
     <Compile Include="Converters\UtcTimestampConverter.cs" />
+    <Compile Include="Converters\Utf8JsonReader.cs" />
+    <Compile Include="Converters\Utf8JsonWriter.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\PackageIdExtensions.cs" />
     <Compile Include="Helpers\ListHelpers.cs" />
@@ -139,11 +145,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.14</Version>
+      <Version>6.2.8</Version>
     </PackageReference>
-    <PackageReference Include="System.Text.Json">
-      <Version>7.0.1</Version>
-    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utf8Json\Utf8Json.csproj">
+      <Project>{7a507c94-cf97-414a-a7e5-e978b0213b29}</Project>
+      <Name>Utf8Json</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

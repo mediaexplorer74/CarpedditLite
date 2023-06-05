@@ -4,9 +4,10 @@ using Carpeddit.Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
+//using System.Text.Json;
 using System.Threading.Tasks;
-using System.Web;
+using Utf8Json;
+//using System.Web;
 
 namespace Carpeddit.Api.Services
 {
@@ -25,7 +26,8 @@ namespace Carpeddit.Api.Services
 
                 var commentsListing = response.FirstOrDefault();
 
-                return commentsListing.Data.Children.Select(obj => obj.Data).ToList();
+                //RnD
+                return default;//commentsListing.Data.Children.Select(obj => obj.Data).ToList();
             });
 
         public Task<IList<IPostReplyable>> GetCommentsOrMoreAsync(string postName, ListingInput input)
@@ -38,46 +40,49 @@ namespace Carpeddit.Api.Services
 
                 return response.FirstOrDefault().Data.Children.Select<ApiObjectWithKind<object>, IPostReplyable>(obj =>
                 {
+                    //RnD
                     if (obj.Kind == "more")
-                        return JsonSerializer.Deserialize<More>(obj.Data.ToString(), ApiJsonContext.Default.More);
+                        return default;//JsonSerializer.Deserialize<More>(obj.Data.ToString(), ApiJsonContext.Default.More);
 
-                    return JsonSerializer.Deserialize<Comment>(obj.Data.ToString(), ApiJsonContext.Default.Comment);
+                    return default;//JsonSerializer.Deserialize<Comment>(obj.Data.ToString(), ApiJsonContext.Default.Comment);
                 }).ToList();
             });
 
         public Task<IList<Post>> GetFrontpagePostsAsync(SortMode sort, ListingInput listingInput = null)
         {
+            //RnD
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             if (listingInput != null)
             {
-                queryString.Add("after", listingInput.After);
-                queryString.Add("raw_json", "1");
-                queryString.Add("before", listingInput.Before);
-                queryString.Add("limit", listingInput.Limit.ToString());
+                //queryString.Add("after", listingInput.After);
+                //queryString.Add("raw_json", "1");
+                //queryString.Add("before", listingInput.Before);
+                //queryString.Add("limit", listingInput.Limit.ToString());
 
                 var sortString = sort.ToString();
 
                 if (sortString.EndsWith("All Time"))
                 {
-                    queryString.Add("t", "all");
+                    //queryString.Add("t", "all");
                 } else if (sortString.EndsWith("Today"))
                 {
-                    queryString.Add("t", "day");
+                    //queryString.Add("t", "day");
                 }
                 else if (sortString.EndsWith("Now"))
                 {
-                    queryString.Add("t", "hour");
-                } else
+                    //queryString.Add("t", "hour");
+                } 
+                else
                 {
-                    queryString.Add("t", sortString.Replace("Top", string.Empty).Replace("Controversial", string.Empty).ToLower());
+                    //queryString.Add("t", sortString.Replace("Top", string.Empty).Replace("Controversial", string.Empty).ToLower());
                 }
             }
 
             return RunAsync<IList<Post>>(async () =>
             {
                 var response = await WebHelper.GetDeserializedResponseAsync($"/{StringToSortTypeConverter.ToAPISort(sort)}.json?{queryString}", ApiJsonContext.Default.ListingIListApiObjectWithKindPost);
-                return response.Data.Children.Select(p => p.Data).ToList();
+                return default;//response.Data.Children.Select(p => p.Data).ToList();
             });
         }
 
@@ -85,7 +90,10 @@ namespace Carpeddit.Api.Services
             => Me ??= await RunAsync(() => WebHelper.GetDeserializedResponseAsync("/api/v1/me?raw_json=1", ApiJsonContext.Default.User, true));
 
         public Task<Subreddit> GetSubredditInfoAsync(string subreddit)
-            => RunAsync(async () => (await WebHelper.GetDeserializedResponseAsync($"/r/{subreddit}/about.json?raw_json=1", ApiJsonContext.Default.ApiObjectWithKindSubreddit)).Data);
+        {
+            //RnD
+            return default;//RunAsync(async () => (await WebHelper.GetDeserializedResponseAsync($"/r/{subreddit}/about.json?raw_json=1", ApiJsonContext.Default.ApiObjectWithKindSubreddit)).Data);
+        }
 
         public Task<IList<Post>> GetSubredditPostsAsync(string subreddit, SortMode sort, ListingInput listingInput)
             => RunAsync<IList<Post>>(async () =>
@@ -94,38 +102,42 @@ namespace Carpeddit.Api.Services
 
                 if (listingInput != null)
                 {
-                    queryString.Add("after", listingInput.After);
-                    queryString.Add("raw_json", "1");
-                    queryString.Add("before", listingInput.Before);
-                    queryString.Add("limit", listingInput.Limit.ToString());
+                    //RnD
+                    //queryString.Add("after", listingInput.After);
+                    //queryString.Add("raw_json", "1");
+                    //queryString.Add("before", listingInput.Before);
+                    //queryString.Add("limit", listingInput.Limit.ToString());
 
                     var sortString = sort.ToString();
 
                     if (sortString.EndsWith("All Time"))
                     {
-                        queryString.Add("t", "all");
+                        //queryString.Add("t", "all");
                     }
                     else if (sortString.EndsWith("Today"))
                     {
-                        queryString.Add("t", "day");
+                        //queryString.Add("t", "day");
                     }
                     else if (sortString.EndsWith("Now"))
                     {
-                        queryString.Add("t", "hour");
+                        //queryString.Add("t", "hour");
                     }
                     else
                     {
-                        queryString.Add("t", sortString.Replace("Top", string.Empty).Replace("Controversial", string.Empty).ToLower());
+                        //queryString.Add("t", sortString.Replace("Top", string.Empty).Replace("Controversial", string.Empty).ToLower());
                     }
                 }
 
                 var listing = await WebHelper.GetDeserializedResponseAsync($"/r/{subreddit}/{StringToSortTypeConverter.ToAPISort(sort)}.json?{queryString}", ApiJsonContext.Default.ListingIListApiObjectWithKindPost);
 
-                return listing.Data.Children.Select(p => p.Data).ToList();
+                //RnD
+                return default;//listing.Data.Children.Select(p => p.Data).ToList();
             });
 
         public Task<User> GetUserAsync(string userName)
-            => RunAsync(async () => (await WebHelper.GetDeserializedResponseAsync($"/user/{userName}/about.json?raw_json=1", ApiJsonContext.Default.ApiObjectWithKindUser)).Data);
+        {
+            return default;//RunAsync(async () => (await WebHelper.GetDeserializedResponseAsync($"/user/{userName}/about.json?raw_json=1", ApiJsonContext.Default.ApiObjectWithKindUser)).Data);
+        }
 
         public Task<UserKarmaContainer> GetUserKarmaAsync()
         {
@@ -139,34 +151,34 @@ namespace Carpeddit.Api.Services
 
                 if (listingInput != null)
                 {
-                    queryString.Add("after", listingInput.After);
-                    queryString.Add("raw_json", "1");
-                    queryString.Add("before", listingInput.Before);
-                    queryString.Add("limit", listingInput.Limit.ToString());
+                    //queryString.Add("after", listingInput.After);
+                    //queryString.Add("raw_json", "1");
+                    //queryString.Add("before", listingInput.Before);
+                    //queryString.Add("limit", listingInput.Limit.ToString());
 
                     var sortString = sort.ToString();
 
                     if (sortString.EndsWith("All Time"))
                     {
-                        queryString.Add("t", "all");
+                        //queryString.Add("t", "all");
                     }
                     else if (sortString.EndsWith("Today"))
                     {
-                        queryString.Add("t", "day");
+                        //queryString.Add("t", "day");
                     }
                     else if (sortString.EndsWith("Now"))
                     {
-                        queryString.Add("t", "hour");
+                        //queryString.Add("t", "hour");
                     }
                     else
                     {
-                        queryString.Add("t", sortString.Replace("Top", string.Empty).Replace("Controversial", string.Empty).ToLower());
+                        //queryString.Add("t", sortString.Replace("Top", string.Empty).Replace("Controversial", string.Empty).ToLower());
                     }
                 }
 
                 var response = await WebHelper.GetDeserializedResponseAsync($"/user/{user}/submitted/{StringToSortTypeConverter.ToAPISort(sort)}.json?{queryString}", ApiJsonContext.Default.ListingIListApiObjectWithKindPost);
 
-                return response.Data.Children.Select(p => p.Data).ToList();
+                return default;//response.Data.Children.Select(p => p.Data).ToList();
             });
 
         public Task VoteAsync(VotingInput input)
@@ -207,7 +219,7 @@ namespace Carpeddit.Api.Services
             {
                 var messagesListing = await WebHelper.GetDeserializedResponseAsync($"/message/{type.ToString().ToLower()}", ApiJsonContext.Default.ListingIListApiObjectWithKindMessage);
 
-                return messagesListing.Data.Children.Select(a => a.Data).ToList();
+                return default;//messagesListing.Data.Children.Select(a => a.Data).ToList();
             });
 
         public Task CommentAsync(string fullname, string rawMarkdownText)

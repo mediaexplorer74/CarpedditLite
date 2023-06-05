@@ -5,9 +5,6 @@ using Carpeddit.App.ViewModels;
 using Carpeddit.App.ViewModels.Pages;
 using Carpeddit.Repository;
 using CommunityToolkit.Mvvm.DependencyInjection;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Notifications;
 using System;
@@ -40,8 +37,8 @@ namespace Carpeddit.App
             InitializeComponent();
             _ = ConfigureServices();
 
-            if (!string.IsNullOrEmpty(Secrets.AppCenterSecret))
-                AppCenter.Start(Secrets.AppCenterSecret, typeof(Analytics), typeof(Crashes));
+            //if (!string.IsNullOrEmpty(Secrets.AppCenterSecret))
+            //    AppCenter.Start(Secrets.AppCenterSecret, typeof(Analytics), typeof(Crashes));
         }
 
         private IServiceProvider ConfigureServices()

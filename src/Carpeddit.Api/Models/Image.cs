@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
+//using System.Text.Json.Serialization;
 
 namespace Carpeddit.Api.Models
 {
@@ -27,8 +27,10 @@ namespace Carpeddit.Api.Models
         public int? Height { get; set; }
     }
 
+    /*
     public record Preview(
         [property: JsonPropertyName("images")] IReadOnlyList<PreviewImage> Images,
         [property: JsonPropertyName("enabled")] bool? Enabled
     );
+    */
 }

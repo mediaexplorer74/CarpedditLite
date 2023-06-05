@@ -15,6 +15,9 @@ namespace Carpeddit.App.ViewModels.Pages
     public sealed partial class SettingsPageViewModel : ObservableObject
     {
         public SettingsViewModel SettingsManager { get; } = Ioc.Default.GetService<SettingsViewModel>();
+        public RedditPrefsViewModel RedditPrefs { get; set; }
+        public object ChangeAppThemeCommand { get; internal set; }
+        public object ChangeTintColorCommand { get; internal set; }
 
         [ObservableProperty]
         private RedditPrefsViewModel redditPrefs;
@@ -75,17 +78,20 @@ namespace Carpeddit.App.ViewModels.Pages
 
         [RelayCommand]
         public Task SaveRedditPrefsAsync()
-            => RedditPrefs.UpdateAsync();
+        {
+            //RnD
+            return default;//RedditPrefs.UpdateAsync();
+        }
 
         [RelayCommand]
         public void UnsubscribeAllEmails()
         {
-            RedditPrefs.EmailDigests = false;
-            RedditPrefs.EmailPostReply = false;
-            RedditPrefs.EmailChatRequest = false;
-            RedditPrefs.EmailMessages = false;
-            RedditPrefs.EmailCommunityDiscovery = false;
-            RedditPrefs.EmailCommentReply = false;
+            //RedditPrefs.EmailDigests = false;
+            //RedditPrefs.EmailPostReply = false;
+            //RedditPrefs.EmailChatRequest = false;
+            //RedditPrefs.EmailMessages = false;
+            //RedditPrefs.EmailCommunityDiscovery = false;
+            //RedditPrefs.EmailCommentReply = false;
         }
     }
 }

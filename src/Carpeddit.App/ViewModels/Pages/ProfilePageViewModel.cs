@@ -31,14 +31,18 @@ namespace Carpeddit.App.ViewModels.Pages
                 Posts = new(source, 50, () =>
                 {
                     if (loadedInitialPosts)
-                        IsLoadingMore = true;
+                    {
+                        //IsLoadingMore = true;
+                    }
                     else
-                        IsLoading = true;
+                    {
+                        //IsLoading = true;
+                    }
                 }, () =>
                 {
                     loadedInitialPosts = true;
-                    IsLoading = false;
-                    IsLoadingMore = false;
+                    //IsLoading = false;
+                    //IsLoadingMore = false;
                 });
             }
         }
