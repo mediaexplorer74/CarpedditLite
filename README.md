@@ -9,7 +9,7 @@ A lite edition (fork/replica) of client for [r]eddit. My uncomplete attempt to f
 
 ## Status
 - Min. os. win. build targeted to 16299.
-- I noticed that auth system is ok... buth code realization is so difficult to me :/
+- I noticed that Carpedit's auth system is very good... but its code realization is so difficult to me :/
 - 16299-> 15063 failed (too many components are standard2.0-based, sadly!)
 
 ## TODO
