@@ -1,5 +1,5 @@
 # CarpedditLite
-A lite edition (fork/replica) of client for [r]eddit. My uncomplete attempt to fix "baconit" via RnD Carpeddit auth system.
+A lite edition (fork/replica) of client for [r]eddit. My uncomplete attempt to fix my [baconit](https://github.com/mediaexplorer74/baconit) fork via RnD Carpeddit auth system.
 
 ## Screenshots
 ![](/images/shot1.png)
