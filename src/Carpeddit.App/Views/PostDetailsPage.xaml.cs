@@ -36,7 +36,9 @@ namespace Carpeddit.App.Views
             InitializeComponent();
 
             Loaded += OnLoaded;
-            TitleBar.Loaded += (_, _1) => TitleBar.SetAsTitleBar();
+
+            //RnD
+            //TitleBar.Loaded += (_, _1) => TitleBar.SetAsTitleBar();
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs e)
@@ -45,12 +47,13 @@ namespace Carpeddit.App.Views
 
             if (_showTitleBar)
             {
-                TitleBar.Visibility = Visibility.Visible;
+                //RnD
+                //TitleBar.Visibility = Visibility.Visible;
                 BackButton.Visibility = Visibility.Visible;
-                TitleBar.SetAsTitleBar();
+                //TitleBar.SetAsTitleBar();
             } else
             {
-                TitleBar.Visibility = Visibility.Collapsed;
+                //TitleBar.Visibility = Visibility.Collapsed;
                 BackButton.Visibility = Visibility.Collapsed;
             }
 

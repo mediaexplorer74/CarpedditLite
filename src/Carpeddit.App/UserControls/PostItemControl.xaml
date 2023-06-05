@@ -17,7 +17,8 @@
         BorderBrush="{x:Bind BorderBrush, Mode=OneWay}"
         BorderThickness="{x:Bind BorderThickness, Mode=OneWay}"
         ColumnSpacing="4"
-        CornerRadius="{x:Bind CornerRadius, Mode=OneWay}">
+        >
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="46" />
             <ColumnDefinition />
@@ -105,7 +106,6 @@
                     MaxHeight="400"
                     Margin="0,4,0,0"
                     x:Load="{x:Bind Post.HasImage, Mode=OneWay}"
-                    CornerRadius="4"
                     DecodePixelType="Logical"
                     Source="{x:Bind Post.ImageUri, Mode=OneWay}" />
 
@@ -135,7 +135,6 @@
                     Background="{ThemeResource ExpanderContentBackground}"
                     BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                     BorderThickness="1"
-                    CornerRadius="4"
                     ItemsSource="{x:Bind Post.Images, Mode=OneWay}">
                     <FlipView.ItemTemplate>
                         <DataTemplate x:DataType="models:Image">

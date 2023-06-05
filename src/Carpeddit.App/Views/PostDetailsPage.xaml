@@ -18,8 +18,8 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <DataTemplate x:Key="CommentItemTemplate" x:DataType="viewmodels:CommentViewModel">
-            <uc:CommentItemControl Margin="{x:Bind CommentMargin}" Model="{x:Bind}">
+        <!--DataTemplate x:Key="CommentItemTemplate" x:DataType="viewmodels:CommentViewModel">
+            < ! - - uc:CommentItemControl Margin="{x:Bind CommentMargin}" Model="{x:Bind}">
                 <uc:CommentItemControl.FooterContent>
                     <CommandBar
                         Margin="-10,0,0,0"
@@ -31,8 +31,8 @@
                         <AppBarButton Icon="{ui:FontIcon Glyph=&#xE97A;}" Label="Reply" />
                     </CommandBar>
                 </uc:CommentItemControl.FooterContent>
-            </uc:CommentItemControl>
-        </DataTemplate>
+            </uc:CommentItemControl - - >
+        </DataTemplate-->
 
         <DataTemplate x:Key="MoreItemTemplate" x:DataType="models:More">
             <Button Margin="-2,0,0,0" Style="{ThemeResource AccentButtonStyle}">
@@ -44,10 +44,10 @@
             </Button>
         </DataTemplate>
 
-        <local:CommentItemTemplateSelector
+        <!--local:CommentItemTemplateSelector
             x:Key="CommentItemTemplateSelector"
             CommentItemTemplate="{StaticResource CommentItemTemplate}"
-            MoreItemTemplate="{StaticResource MoreItemTemplate}" />
+            MoreItemTemplate="{StaticResource MoreItemTemplate}" /-->
     </Page.Resources>
 
     <Grid>
@@ -69,7 +69,6 @@
                 VerticalAlignment="Stretch"
                 AutomationProperties.Name="Back"
                 Click="OnBackButtonClick"
-                CornerRadius="5"
                 Style="{ThemeResource TransparentButtonStyle}"
                 ToolTipService.ToolTip="Back">
                 <muxc:AnimatedIcon
@@ -85,22 +84,22 @@
                 </muxc:AnimatedIcon>
             </Button>
 
-            <uc:CustomTitleBar
+            <!--uc:CustomTitleBar
                 x:Name="TitleBar"
                 Title="Post Details"
                 Grid.Column="1"
-                Height="40" />
+                Height="40" /-->
         </Grid>
 
+        <!--ItemTemplateSelector="{StaticResource CommentItemTemplateSelector}"-->
         <ListView
             x:Name="MainList"
             Grid.Row="1"
             Padding="0,0,4,0"
-            ItemTemplateSelector="{StaticResource CommentItemTemplateSelector}"
             SelectionMode="None">
             <ListView.Header>
                 <StackPanel Padding="0,0,0,12" Spacing="8">
-                    <uc:PostItemControl
+                    <!--uc:PostItemControl
                         Title="{x:Bind ViewModel.Title}"
                         Margin="12,0"
                         Padding="4,0,0,0"
@@ -126,7 +125,7 @@
                                 <AppBarButton Icon="Save" Label="Save" />
                             </CommandBar>
                         </uc:PostItemControl.FooterContent>
-                    </uc:PostItemControl>
+                    </uc:PostItemControl-->
 
                     <TextBlock
                         Margin="14,0,0,12"

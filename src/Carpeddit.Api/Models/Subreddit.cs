@@ -12,10 +12,10 @@ namespace Carpeddit.Api.Models
     public sealed class Subreddit
     {
         [JsonPropertyName("user_flair_background_color")]
-        public string UserFlairBackgroundColor { get; set; }
+        public string? UserFlairBackgroundColor { get; set; }
 
         [JsonPropertyName("submit_text_html")]
-        public string SubmitTextHtml { get; set; }
+        public string? SubmitTextHtml { get; set; }
 
         [JsonPropertyName("restrict_posting")]
         public bool RestrictPosting { get; set; }
@@ -36,34 +36,34 @@ namespace Carpeddit.Api.Models
         public bool? UserCanFlairInSr { get; set; }
 
         [JsonPropertyName("display_name")]
-        public string DisplayName { get; set; }
+        public string? DisplayName { get; set; }
 
         [JsonPropertyName("header_img")]
-        public string HeaderImg { get; set; }
+        public string? HeaderImg { get; set; }
 
         [JsonPropertyName("title")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [JsonPropertyName("allow_galleries")]
         public bool AllowGalleries { get; set; }
 
         [JsonPropertyName("icon_size")]
-        public JsonArray IconSize { get; set; }
+        public JsonArray? IconSize { get; set; }
 
         [JsonPropertyName("primary_color")]
-        public string PrimaryColor { get; set; }
+        public string? PrimaryColor { get; set; }
 
         [JsonPropertyName("active_user_count")]
         public int ActiveUserCount { get; set; }
 
         [JsonPropertyName("icon_img")]
-        public string IconImg { get; set; }
+        public string? IconImg { get; set; }
 
         [JsonPropertyName("display_name_prefixed")]
         public string DisplayNamePrefixed { get; set; }
 
         [JsonPropertyName("accounts_active")]
-        public int AccountsActive { get; set; }
+        public int? AccountsActive { get; set; }
 
         [JsonPropertyName("public_traffic")]
         public bool? PublicTraffic { get; set; }
@@ -72,13 +72,13 @@ namespace Carpeddit.Api.Models
         public int Subscribers { get; set; }
 
         [JsonPropertyName("user_flair_richtext")]
-        public JsonArray UserFlairRichtext { get; set; }
+        public JsonArray? UserFlairRichtext { get; set; }
 
         [JsonPropertyName("videostream_links_count")]
-        public int VideostreamLinksCount { get; set; }
+        public int? VideostreamLinksCount { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonPropertyName("quarantine")]
         public bool? Quarantine { get; set; }
@@ -87,16 +87,16 @@ namespace Carpeddit.Api.Models
         public bool? HideAds { get; set; }
 
         [JsonPropertyName("prediction_leaderboard_entry_type")]
-        public string PredictionLeaderboardEntryType { get; set; }
+        public string? PredictionLeaderboardEntryType { get; set; }
 
         [JsonPropertyName("emojis_enabled")]
         public bool EmojisEnabled { get; set; }
 
         [JsonPropertyName("advertiser_category")]
-        public string AdvertiserCategory { get; set; }
+        public string? AdvertiserCategory { get; set; }
 
         [JsonPropertyName("public_description")]
-        public string PublicDescription { get; set; }
+        public string? PublicDescription { get; set; }
 
         [JsonPropertyName("comment_score_hide_mins")]
         public int? CommentScoreHideMins { get; set; }
@@ -108,10 +108,10 @@ namespace Carpeddit.Api.Models
         public bool? UserHasFavorited { get; set; }
 
         [JsonPropertyName("user_flair_template_id")]
-        public string UserFlairTemplateId { get; set; }
+        public string? UserFlairTemplateId { get; set; }
 
         [JsonPropertyName("community_icon")]
-        public string CommunityIcon { get; set; }
+        public string? CommunityIcon { get; set; }
 
         [JsonPropertyName("banner_background_image")]
         public string BannerBackgroundImage { get; set; }
@@ -123,25 +123,25 @@ namespace Carpeddit.Api.Models
         public bool CommunityReviewed { get; set; }
 
         [JsonPropertyName("submit_text")]
-        public string SubmitText { get; set; }
+        public string? SubmitText { get; set; }
 
         [JsonPropertyName("description_html")]
-        public string DescriptionHtml { get; set; }
+        public string? DescriptionHtml { get; set; }
 
         [JsonPropertyName("spoilers_enabled")]
         public bool? SpoilersEnabled { get; set; }
 
         [JsonPropertyName("comment_contribution_settings")]
-        public CommentContributionSettings CommentContributionSettings { get; set; }
+        public CommentContributionSettings? CommentContributionSettings { get; set; }
 
         [JsonPropertyName("allow_talks")]
         public bool AllowTalks { get; set; }
 
         [JsonPropertyName("header_size")]
-        public List<int> HeaderSize { get; set; }
+        public List<int>? HeaderSize { get; set; }
 
         [JsonPropertyName("user_flair_position")]
-        public string UserFlairPosition { get; set; }
+        public string? UserFlairPosition { get; set; }
 
         [JsonPropertyName("all_original_content")]
         public bool? AllOriginalContent { get; set; }
@@ -153,7 +153,7 @@ namespace Carpeddit.Api.Models
         public bool? IsEnrolledInNewModmail { get; set; }
 
         [JsonPropertyName("key_color")]
-        public string KeyColor { get; set; }
+        public string? KeyColor { get; set; }
 
         [JsonPropertyName("event_posts_enabled")]
         public bool? EventPostsEnabled { get; set; }
@@ -172,7 +172,7 @@ namespace Carpeddit.Api.Models
         public bool? ShowMediaPreview { get; set; }
 
         [JsonPropertyName("submission_type")]
-        public string SubmissionType { get; set; }
+        public string? SubmissionType { get; set; }
 
         [JsonPropertyName("user_is_subscriber")]
         public bool? UserIsSubscriber { get; set; }
@@ -187,7 +187,7 @@ namespace Carpeddit.Api.Models
         public bool ShouldArchivePosts { get; set; }
 
         [JsonPropertyName("user_flair_type")]
-        public string UserFlairType { get; set; }
+        public string? UserFlairType { get; set; }
 
         [JsonPropertyName("allow_polls")]
         public bool AllowPolls { get; set; }
@@ -211,7 +211,7 @@ namespace Carpeddit.Api.Models
         public bool? IsCrosspostableSubreddit { get; set; }
 
         [JsonPropertyName("notification_level")]
-        public string NotificationLevel { get; set; }
+        public string? NotificationLevel { get; set; }
 
         [JsonPropertyName("should_show_media_in_comments_setting")]
         public bool ShouldShowMediaInCommentsSetting { get; set; }

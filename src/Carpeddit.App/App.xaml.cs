@@ -129,4 +129,26 @@ namespace Carpeddit.App
             throw new Exception("Failed to load page " + e.SourcePageType.FullName);
         }
     }
+
+    internal class ToastContentBuilder
+    {
+        public ToastContentBuilder()
+        {
+        }
+
+        internal object AddArgument(string v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object AddText(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Show()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

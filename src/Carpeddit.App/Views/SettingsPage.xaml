@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:constants="using:Carpeddit.Common.Constants"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
@@ -13,13 +12,17 @@
     mc:Ignorable="d">
     <Page.Resources>
         <MenuFlyout x:Name="ImageCardMenuFlyout">
-            <MenuFlyoutItem
+
+            <!-- Icon="{ui:FontIcon Glyph=&#xE1A5;}" -->
+                <MenuFlyoutItem
                 Command="{x:Bind ViewModel.PickTintFromFileCommand, Mode=OneWay}"
-                Icon="{ui:FontIcon Glyph=&#xE1A5;}"
+                
                 Text="From file" />
-            <MenuFlyoutItem
+
+            <!-- Icon="{ui:FontIcon Glyph=&#xE12B;}" -->
+                <MenuFlyoutItem
                 Command="{x:Bind ViewModel.PickTintFromUrlCommand, Mode=OneWay}"
-                Icon="{ui:FontIcon Glyph=&#xE12B;}"
+                
                 Text="From URL" />
         </MenuFlyout>
     </Page.Resources>
@@ -54,7 +57,7 @@
                     Style="{StaticResource BaseTextBlockStyle}"
                     Text="Appearance" />
 
-                <labs:SettingsCard Header="Theme">
+                <!--labs:SettingsCard Header="Theme">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon FontFamily="ms-appx:///Assets/SettingsIcons.ttf#Settings Fluent Icons" Glyph="&#xE795;" />
                     </labs:SettingsCard.HeaderIcon>
@@ -68,9 +71,9 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                </labs:SettingsCard>
+                </labs:SettingsCard-->
 
-                <labs:SettingsExpander Description="Add tint to your window to make your experience more personalized." Header="Window tint">
+                <!--labs:SettingsExpander Description="Add tint to your window to make your experience more personalized." Header="Window tint">
                     <labs:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE771;" />
                     </labs:SettingsExpander.HeaderIcon>
@@ -138,9 +141,9 @@
                         </labs:SettingsCard>
                         <labs:SettingsCard x:Name="DummyTintCard" Visibility="Collapsed" />
                     </labs:SettingsExpander.Items>
-                </labs:SettingsExpander>
+                </labs:SettingsExpander-->
 
-                <labs:SettingsExpander
+                <!--labs:SettingsExpander
                     x:Name="RedditPrefsCard"
                     Description="These settings will change the view of the desktop website but may impact certain parts of the app."
                     Header="Reddit web preferences"
@@ -227,9 +230,9 @@
                                         Style="{ThemeResource TransparentAccentButtonStyle}" />
                                 </StackPanel>
                             </labs:SettingsCard.Description>
-                        </labs:SettingsCard>
+                        </labs:SettingsCard-->
 
-                        <labs:SettingsCard
+                        <!--labs:SettingsCard
                             Description="Save your changed settings to Reddit."
                             Header="Save settings"
                             HeaderIcon="{ui:FontIcon Glyph=&#xE105;}">
@@ -249,14 +252,14 @@
                         Width="16"
                         Height="16"
                         Margin="0,0,12,0" />
-                </labs:SettingsExpander>
+                </labs:SettingsExpander-->
 
                 <TextBlock
                     Margin="0,12,0,8"
                     Style="{StaticResource BaseTextBlockStyle}"
                     Text="About" />
 
-                <labs:SettingsExpander Header="Backup and restore" HeaderIcon="Refresh">
+                <!--labs:SettingsExpander Header="Backup and restore" HeaderIcon="Refresh">
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard Header="Save a copy of the logs" HeaderIcon="Save">
                             <Button Content="Save" />
@@ -271,9 +274,9 @@
                             <Button Content="Reset" />
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
-                </labs:SettingsExpander>
+                </labs:SettingsExpander-->
 
-                <labs:SettingsCard Header="App info">
+                <!--labs:SettingsCard Header="App info">
                     <labs:SettingsCard.Description>
                         <TextBlock IsTextSelectionEnabled="True">
                             <Run Text="Carpeddit, version" />
@@ -284,7 +287,7 @@
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE946;" />
                     </labs:SettingsCard.HeaderIcon>
-                </labs:SettingsCard>
+                </labs:SettingsCard-->
             </StackPanel>
 
             <VisualStateManager.VisualStateGroups>

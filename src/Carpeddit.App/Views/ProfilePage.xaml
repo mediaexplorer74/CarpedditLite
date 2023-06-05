@@ -5,7 +5,6 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:enums="using:Carpeddit.Api.Enums"
-    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:Carpeddit.App.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
@@ -18,13 +17,17 @@
     mc:Ignorable="d">
     <Page.Resources>
         <MenuFlyout x:Key="ProfileShareMenuFlyout">
-            <MenuFlyoutItem
-                Icon="{ui:FontIcon Glyph=&#xE1CA;}"
+
+            <!-- Icon="{ui:FontIcon Glyph=&#xE1CA;}" -->
+                <MenuFlyoutItem
+                
                 IsEnabled="False"
                 Text="Crosspost" />
-            <MenuFlyoutItem
+
+            <!-- Icon="{ui:FontIcon Glyph=&#xE16F;}" -->
+                <MenuFlyoutItem
                 Click="OnCopyLinkFlyoutItemClick"
-                Icon="{ui:FontIcon Glyph=&#xE16F;}"
+                
                 Text="Copy link" />
         </MenuFlyout>
 
@@ -92,12 +95,13 @@
             BorderThickness="1"
             SizeChanged="BackgroundHost_SizeChanged" />
 
-        <ListView
+        <!-- ui:ScrollViewerExtensions.VerticalScrollBarMargin="0,48,0,0" -->
+            <ListView
             x:Name="MainList"
             Padding="48,0,56,0"
             d:Margin="0"
             d:Padding="0"
-            ui:ScrollViewerExtensions.VerticalScrollBarMargin="0,48,0,0"
+            
             ItemContainerStyle="{StaticResource PostItemContainerStyle}"
             ItemsSource="{x:Bind ViewModel.Posts}"
             SelectionMode="None">
@@ -135,7 +139,6 @@
                                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                                         BorderThickness="1"
-                                        CornerRadius="32"
                                         DecodePixelType="Logical"
                                         Source="{x:Bind ViewModel.User.IconImage, Converter={StaticResource StringToUri}, ConverterParameter=SubredditIconFallback}"
                                         Stretch="UniformToFill"
@@ -202,8 +205,8 @@
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                         BorderThickness="1"
-                        CornerRadius="4">
-                        <labs:Segmented
+                        >
+                        <!--labs:Segmented
                             x:Name="SortSegmented"
                             IsItemClickEnabled="True"
                             ItemClick="Segmented_ItemClick"
@@ -242,7 +245,7 @@
 
                                 <TextBlock Tag="TopItem" Text="Top" />
                             </labs:SegmentedItem>
-                        </labs:Segmented>
+                        </labs:Segmented-->
                     </Border>
 
                     <muxc:ProgressRing
@@ -335,10 +338,10 @@
                         <StateTrigger IsActive="{x:Bind ViewModel.InfoLoaded, Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="LoadingInfoRing.Visibility" Value="Collapsed" />
+                        <!--Setter Target="LoadingInfoRing.Visibility" Value="Collapsed" />
                         <Setter Target="LoadingInfoRing.IsActive" Value="False" />
                         <Setter Target="ProfileImage.Visibility" Value="Visible" />
-                        <Setter Target="JoinButton.Visibility" Value="Visible" />
+                        <Setter Target="JoinButton.Visibility" Value="Visible" /-->
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -346,7 +349,7 @@
                 <VisualState x:Name="FullHeaderState" />
                 <VisualState x:Name="NoHeaderState">
                     <VisualState.Setters>
-                        <Setter Target="SubredditFriendlyName.Foreground" Value="{ThemeResource TextFillColorPrimary}" />
+                        <!--Setter Target="SubredditFriendlyName.Foreground" Value="{ThemeResource TextFillColorPrimary}" />
                         <Setter Target="SubredditName.Foreground" Value="{ThemeResource TextFillColorPrimary}" />
                         <Setter Target="RootHeaderGrid.Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
                         <Setter Target="RootHeaderGrid.BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
@@ -354,7 +357,7 @@
                         <Setter Target="RootHeaderGrid.Margin" Value="-39,-12,-56,0" />
                         <Setter Target="RootHeaderGrid.Padding" Value="48,0,48,12" />
                         <Setter Target="AboutPanel.Margin" Value="0,8,0,0" />
-                        <Setter Target="NotFoundBannerImageMessage.Visibility" Value="Visible" />
+                        <Setter Target="NotFoundBannerImageMessage.Visibility" Value="Visible" /-->
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

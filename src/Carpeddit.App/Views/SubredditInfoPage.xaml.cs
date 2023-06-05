@@ -42,7 +42,8 @@ namespace Carpeddit.App.Views
 
         private void SubredditInfoPage_Loaded(object sender, RoutedEventArgs e)
         {
-            _scrollViewer = MainList.FindDescendant<ScrollViewer>();
+            //RnD
+            _scrollViewer = default;//MainList.FindDescendant<ScrollViewer>();
 
             _scrollerPropertySet = ElementCompositionPreview.GetScrollViewerManipulationPropertySet(_scrollViewer);
             _compositor = _scrollerPropertySet.Compositor;
@@ -88,13 +89,23 @@ namespace Carpeddit.App.Views
             if (element.Tag is string tag)
             {
                 if (tag == "TopItem")
-                    TopSortFlyout.ShowAt(TopItem);
+                {
+                    //RnD
+                    //TopSortFlyout.ShowAt(TopItem);
+                }
                 else if (tag == "ControversialItem")
-                    ControversialSortFlyout.ShowAt(ControversialItem);
+                {
+                    //RnD
+                    //ControversialSortFlyout.ShowAt(ControversialItem);
+                }
 
                 await Task.Delay(30);
-                SortSegmented.SelectedIndex = -1;
-            } else if (element.Tag is SortMode mode && (!selectedSort?.Equals(element.Tag) ?? false))
+
+                //RnD
+                //SortSegmented.SelectedIndex = -1;
+
+            } 
+            else if (element.Tag is SortMode mode && (!selectedSort?.Equals(element.Tag) ?? false))
             {
                 ViewModel.SetSortCommand?.Execute(mode);
             }
@@ -167,11 +178,12 @@ namespace Carpeddit.App.Views
 
             animation.Duration = TimeSpan.FromMilliseconds(600);
 
-            var visual1 = SubredditFriendlyName.GetVisual();
-            var visual2 = SubredditName.GetVisual();
+            //RnD
+            //var visual1 = SubredditFriendlyName.GetVisual();
+            //var visual2 = SubredditName.GetVisual();
 
-            visual1.StartAnimation("Opacity", animation);
-            visual2.StartAnimation("Opacity", animation);
+            //visual1.StartAnimation("Opacity", animation);
+            //visual2.StartAnimation("Opacity", animation);
 
             SubredditFriendlyName.Opacity = 1;
             SubredditName.Opacity = 1;

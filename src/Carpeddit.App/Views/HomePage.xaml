@@ -16,13 +16,15 @@
     <Page.Resources>
         <ResourceDictionary>
             <MenuFlyout x:Key="HomeShareMenuFlyout">
-                <MenuFlyoutItem
-                    Icon="{ui:FontIcon Glyph=&#xE1CA;}"
+
+                <!-- Icon="{ui:FontIcon Glyph=&#xE1CA;}" -->
+                    <MenuFlyoutItem
                     IsEnabled="False"
                     Text="Crosspost" />
-                <MenuFlyoutItem
-                    Click="OnCopyLinkFlyoutItemClick"
-                    Icon="{ui:FontIcon Glyph=&#xE16F;}"
+
+                <!-- Icon="{ui:FontIcon Glyph=&#xE16F;}" -->
+                    <MenuFlyoutItem
+                    Click="OnCopyLinkFlyoutItemClick"                    
                     Text="Copy link" />
             </MenuFlyout>
         </ResourceDictionary>
@@ -159,9 +161,9 @@
                 <VisualStateGroup.States>
                     <VisualState x:Name="TwoPaneViewWideState" />
                     <VisualState x:Name="TwoPaneViewNonWideState">
-                        <VisualState.StateTriggers>
+                        <!--VisualState.StateTriggers>
                             <triggers:ControlSizeTrigger MaxWidth="1000" TargetElement="{x:Bind TwoPaneView}" />
-                        </VisualState.StateTriggers>
+                        </VisualState.StateTriggers-->
                         <VisualState.Setters>
                             <Setter Target="MainList.Padding" Value="48,0,56,0" />
                             <Setter Target="MainList.SelectionMode" Value="None" />

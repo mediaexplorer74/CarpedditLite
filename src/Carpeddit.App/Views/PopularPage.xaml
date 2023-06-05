@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:triggers="using:Microsoft.Toolkit.Uwp.UI.Triggers"
     xmlns:uc="using:Carpeddit.App.UserControls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:Carpeddit.App.ViewModels"
@@ -15,13 +14,15 @@
     mc:Ignorable="d">
     <Page.Resources>
         <MenuFlyout x:Key="PopularShareMenuFlyout">
+
+            <!-- Icon="{ui:FontIcon Glyph=&#xE1CA;}"-->
             <MenuFlyoutItem
-                Icon="{ui:FontIcon Glyph=&#xE1CA;}"
                 IsEnabled="False"
                 Text="Crosspost" />
-            <MenuFlyoutItem
+
+            <!-- Icon="{ui:FontIcon Glyph=&#xE16F;}" -->
+                <MenuFlyoutItem
                 Click="OnCopyLinkFlyoutItemClick"
-                Icon="{ui:FontIcon Glyph=&#xE16F;}"
                 Text="Copy link" />
         </MenuFlyout>
     </Page.Resources>
@@ -35,7 +36,8 @@
         <RelativePanel Margin="0,56,0,12">
             <TextBlock Style="{StaticResource NavigationViewTitleTextBlockStyle}" Text="Popular" />
 
-            <uc:SortAndFilterControl
+            <!-- RnD -->
+                <!--uc:SortAndFilterControl
                 x:Name="SortControl"
                 Height="36"
                 MinWidth="128"
@@ -59,7 +61,7 @@
                         <muxc:RadioMenuFlyoutItem Text="Rising" />
                     </MenuFlyout>
                 </uc:SortAndFilterControl.Flyout>
-            </uc:SortAndFilterControl>
+            </uc:SortAndFilterControl-->
         </RelativePanel>
 
         <muxc:ProgressRing
@@ -87,9 +89,10 @@
                     ItemContainerStyle="{StaticResource PostItemContainerStyle}"
                     ItemsSource="{x:Bind ViewModel.Posts, Mode=OneWay}"
                     SelectionChanged="OnMainListSelectionChanged">
-                    <ListView.ItemTemplate>
+                    
+                    <!--ListView.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:PostViewModel" x:DefaultBindMode="OneWay">
-                            <uc:PostItemControl
+                            < ! - - uc:PostItemControl
                                 Title="{x:Bind Title}"
                                 CreationDate="{x:Bind Created}"
                                 Description="{x:Bind ShortDescription, Mode=OneTime}"
@@ -124,9 +127,9 @@
                                             Label="Save" />
                                     </CommandBar>
                                 </uc:PostItemControl.FooterContent>
-                            </uc:PostItemControl>
+                            </uc:PostItemControl - - >
                         </DataTemplate>
-                    </ListView.ItemTemplate>
+                    </ListView.ItemTemplate-->
 
                     <ListView.Footer>
                         <muxc:ProgressRing
@@ -157,13 +160,13 @@
                 <VisualStateGroup.States>
                     <VisualState x:Name="TwoPaneViewWideState" />
                     <VisualState x:Name="TwoPaneViewNonWideState">
-                        <VisualState.StateTriggers>
+                        <!--VisualState.StateTriggers>
                             <triggers:ControlSizeTrigger MaxWidth="1000" TargetElement="{x:Bind TwoPaneView}" />
-                        </VisualState.StateTriggers>
-                        <VisualState.Setters>
+                        </VisualState.StateTriggers-->
+                        <!--VisualState.Setters>
                             <Setter Target="MainList.Padding" Value="48,0,56,0" />
                             <Setter Target="MainList.SelectionMode" Value="None" />
-                        </VisualState.Setters>
+                        </VisualState.Setters-->
                     </VisualState>
                 </VisualStateGroup.States>
             </VisualStateGroup>

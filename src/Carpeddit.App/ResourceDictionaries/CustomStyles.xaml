@@ -7,23 +7,23 @@
     xmlns:tkitctrls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:uc="using:Carpeddit.App.UserControls">
     <!--#region Custom Control Styles-->
-    <Style x:Key="DefaultPostItemControlStyle" TargetType="uc:PostItemControl">
+    <!--Style x:Key="DefaultPostItemControlStyle" TargetType="uc:PostItemControl">
         <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
         <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="{StaticResource ControlCornerRadius}" />
-    </Style>
+    </Style-->
 
-    <Style BasedOn="{StaticResource DefaultPostItemControlStyle}" TargetType="uc:PostItemControl" />
+    <!--Style BasedOn="{StaticResource DefaultPostItemControlStyle}" TargetType="uc:PostItemControl" /-->
 
-    <Style x:Key="DefaultCommentItemControlStyle" TargetType="uc:CommentItemControl">
+    <!--Style x:Key="DefaultCommentItemControlStyle" TargetType="uc:CommentItemControl">
         <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
         <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="{StaticResource ControlCornerRadius}" />
-    </Style>
+    </Style-->
 
-    <Style BasedOn="{StaticResource DefaultCommentItemControlStyle}" TargetType="uc:CommentItemControl" />
+    <!--Style BasedOn="{StaticResource DefaultCommentItemControlStyle}" TargetType="uc:CommentItemControl" /-->
     <!--#endregion-->
 
     <Style x:Key="NavigationViewTitleTextBlockStyle" TargetType="TextBlock">
@@ -45,9 +45,6 @@
                         Padding="{TemplateBinding Padding}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        contract7NotPresent:CornerRadius="{ThemeResource ControlCornerRadius}"
-                        contract7Present:BackgroundSizing="{TemplateBinding BackgroundSizing}"
-                        contract7Present:CornerRadius="{TemplateBinding CornerRadius}"
                         controls:AnimatedIcon.State="Normal"
                         AutomationProperties.AccessibilityView="Raw"
                         Background="Transparent"
@@ -126,9 +123,6 @@
                         Padding="{TemplateBinding Padding}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        contract7NotPresent:CornerRadius="{ThemeResource ControlCornerRadius}"
-                        contract7Present:BackgroundSizing="{TemplateBinding BackgroundSizing}"
-                        contract7Present:CornerRadius="{TemplateBinding CornerRadius}"
                         controls:AnimatedIcon.State="Normal"
                         AutomationProperties.AccessibilityView="Raw"
                         Background="Transparent"
@@ -207,9 +201,6 @@
                         Padding="{TemplateBinding Padding}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        contract7NotPresent:CornerRadius="{ThemeResource ControlCornerRadius}"
-                        contract7Present:BackgroundSizing="{TemplateBinding BackgroundSizing}"
-                        contract7Present:CornerRadius="{TemplateBinding CornerRadius}"
                         controls:AnimatedIcon.State="Normal"
                         AutomationProperties.AccessibilityView="Raw"
                         Background="{TemplateBinding Background}"
@@ -291,7 +282,6 @@
 
     <Style
         x:Key="TransparentButtonStyle"
-        BasedOn="{StaticResource DefaultButtonStyle}"
         TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
@@ -299,15 +289,13 @@
 
     <Style
         x:Key="TransparentToggleButtonStyle"
-        BasedOn="{StaticResource DefaultToggleButtonStyle}"
-        TargetType="ToggleButton">
+       TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
     </Style>
 
     <Style
         x:Key="StretchedItemContainerStyle"
-        BasedOn="{StaticResource DefaultListViewItemStyle}"
         TargetType="ListViewItem">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />

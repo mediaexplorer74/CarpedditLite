@@ -52,10 +52,11 @@ namespace Carpeddit.App.Views
 
         private async void OnRedditPrefsCardLoaded(object sender, RoutedEventArgs e)
         {
-            RedditPrefsCard.IsEnabled = false;
+            //RnD
+            //RedditPrefsCard.IsEnabled = false;
             ViewModel.RedditPrefs = await RedditPrefsViewModel.GetForCurrentUserAsync();
-            RedditPrefsCard.IsEnabled = true;
-            RedditPrefsLoadingProgressRing.IsActive = false;
+            //RedditPrefsCard.IsEnabled = true;
+            //RedditPrefsLoadingProgressRing.IsActive = false;
         }
     }
 }
